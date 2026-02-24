@@ -14,7 +14,7 @@ export default function LogoCloud() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-center text-xs uppercase tracking-[0.2em] text-content-muted mb-8">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-content-muted mb-8">
           {LOGO_CLOUD.label}
         </p>
 

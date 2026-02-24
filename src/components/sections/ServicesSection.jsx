@@ -22,7 +22,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs text-content-primary mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary mb-6">
             {SERVICES_HEADING.badge}
           </span>
           <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-content-primary mb-4">
@@ -73,12 +73,6 @@ export default function ServicesSection() {
                   <p className="text-content-secondary text-sm leading-relaxed">
                     {service.description}
                   </p>
-
-                  {/* Arrow indicator */}
-                  <div className="mt-5 flex items-center gap-2 text-primary/0 group-hover:text-primary transition-all duration-300 text-sm font-medium">
-                    <span>Learn more</span>
-                    <Icons.ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                  </div>
                 </div>
               </motion.div>
             );

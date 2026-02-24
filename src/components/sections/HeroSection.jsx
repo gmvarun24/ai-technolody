@@ -184,20 +184,8 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-24 md:py-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-16 md:py-20">
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary-dim mb-8"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-          </span>
-          <span className="text-sm text-content-primary">{HERO.badge}</span>
-        </motion.div>
 
         {/* Headline */}
         <motion.h1
@@ -238,6 +226,7 @@ export default function HeroSection() {
         >
           <MovingBorder
             as="a"
+            href={HERO.primaryCta.href}
             containerClassName="h-12"
             className="text-content-primary font-semibold px-8"
           >

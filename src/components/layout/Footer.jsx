@@ -1,4 +1,3 @@
-import { Twitter, Linkedin, Github, Youtube } from "lucide-react";
 import { BRAND, FOOTER_LINKS } from "../../constants";
 
 export default function Footer() {
@@ -16,7 +15,7 @@ export default function Footer() {
         {/* Top: Logo + description + socials */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
+            <a href="/" className="flex items-center gap-2 mb-4">
               <img
                 src={BRAND.logo}
                 alt={BRAND.name}
@@ -30,24 +29,6 @@ export default function Footer() {
               {BRAND.tagline}. Building custom AI agents and workflow
               automations that help businesses scale faster and smarter.
             </p>
-            <div className="flex gap-4">
-              {[
-                { icon: Twitter, href: BRAND.socials.twitter },
-                { icon: Linkedin, href: BRAND.socials.linkedin },
-                { icon: Github, href: BRAND.socials.github },
-                { icon: Youtube, href: BRAND.socials.youtube },
-              ].map(({ icon: Icon, href }, idx) => (
-                <a
-                  key={idx}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-surface-raised border border-border flex items-center justify-center text-content-muted hover:text-primary hover:border-primary/30 transition-all"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Link columns */}
@@ -76,9 +57,6 @@ export default function Footer() {
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-content-muted">
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-          </p>
-          <p className="text-xs text-content-muted">
-            {BRAND.email} · {BRAND.address}
           </p>
         </div>
       </div>

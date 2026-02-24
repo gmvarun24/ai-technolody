@@ -1,30 +1,9 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Send, CheckCircle } from "lucide-react";
 import { SpotlightEffect } from "../aceternity/SpotlightEffect";
 import { MovingBorder } from "../aceternity/MovingBorder";
 import { BRAND } from "../../constants";
-
-const CONTACT_INFO = [
-  {
-    icon: Mail,
-    label: "Email Us",
-    value: BRAND.email,
-    href: `mailto:${BRAND.email}`,
-  },
-  {
-    icon: Phone,
-    label: "Call Us",
-    value: BRAND.phone,
-    href: `tel:${BRAND.phone}`,
-  },
-  {
-    icon: MapPin,
-    label: "Visit Us",
-    value: BRAND.address,
-    href: "#",
-  },
-];
 
 export default function ContactSection() {
   const ref = useRef(null);
@@ -64,7 +43,7 @@ export default function ContactSection() {
         style={{ background: "var(--color-primary)" }}
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,7 +51,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs text-content-primary mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary mb-6">
             Get In Touch
           </span>
           <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-content-primary mb-4">
@@ -84,204 +63,182 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Contact info cards */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="lg:col-span-2 space-y-6"
-          >
-            {CONTACT_INFO.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.a
-                  key={idx}
-                  href={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.3 + idx * 0.1, duration: 0.5 }}
-                  className="group relative block card-surface p-6 hover:border-primary/30 transition-all duration-300 overflow-hidden"
-                >
-                  <SpotlightEffect className="rounded-2xl" />
-                  <div className="relative z-10 flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-5 h-5 text-primary" />
+        {/* Contact Form Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <div className="card-surface p-2 md:p-3 relative overflow-hidden group rounded-3xl border border-border">
+            <SpotlightEffect className="rounded-3xl" />
+
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 relative z-10">
+              {/* Left Side: Contact Info (Email Only) */}
+              <div
+                className="lg:col-span-2 p-8 md:p-10 rounded-2xl flex flex-col justify-between overflow-hidden relative"
+                style={{
+                  background:
+                    "linear-gradient(135deg, var(--color-primary-dim), transparent)",
+                }}
+              >
+                {/* Decorative element inside left panel */}
+                <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
+
+                <div className="relative z-10">
+                  <h3 className="font-display font-bold text-2xl text-content-primary mb-3">
+                    Contact Information
+                  </h3>
+                  <p className="text-content-secondary text-sm leading-relaxed max-w-sm">
+                    Fill out the form and our team will get back to you within
+                    24 hours. Let&apos;s build something extraordinary together.
+                  </p>
+                </div>
+
+                <div className="relative z-10 mt-12 mb-8 lg:mt-auto lg:mb-0 space-y-6">
+                  <a
+                    href={`mailto:${BRAND.email}`}
+                    className="flex items-center gap-4 group/email w-fit"
+                  >
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 group-hover/email:bg-primary group-hover/email:text-primary-foreground transition-colors duration-300">
+                      <Mail className="w-5 h-5 text-primary group-hover/email:text-white transition-colors" />
                     </div>
                     <div>
-                      <p className="text-xs text-content-muted mb-1">
-                        {item.label}
+                      <p className="text-xs text-content-muted mb-1 uppercase tracking-wider">
+                        Email Us
                       </p>
-                      <p className="text-content-primary font-medium text-sm group-hover:text-primary transition-colors">
-                        {item.value}
+                      <p className="text-content-primary font-medium text-base group-hover/email:text-primary transition-colors">
+                        {BRAND.email}
                       </p>
                     </div>
-                  </div>
-                </motion.a>
-              );
-            })}
-
-            {/* Decorative social presence card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="card-surface p-6"
-            >
-              <p className="text-content-muted text-xs mb-3 uppercase tracking-wider">
-                Follow Us
-              </p>
-              <div className="flex gap-3">
-                {Object.entries(BRAND.socials).map(([name, href]) => (
-                  <a
-                    key={name}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-xl bg-surface-overlay border border-border flex items-center justify-center text-content-muted hover:text-primary hover:border-primary/30 hover:bg-primary/10 transition-all duration-300"
-                  >
-                    <span className="text-xs font-medium capitalize">
-                      {name.charAt(0).toUpperCase()}
-                    </span>
                   </a>
-                ))}
+                </div>
               </div>
-            </motion.div>
-          </motion.div>
 
-          {/* Contact form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="lg:col-span-3"
-          >
-            <div className="card-surface p-8 relative overflow-hidden group">
-              <SpotlightEffect className="rounded-2xl" />
-
-              {/* Success overlay */}
-              {submitted && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="absolute inset-0 z-30 flex flex-col items-center justify-center rounded-2xl"
-                  style={{ background: "var(--surface-raised)" }}
-                >
+              {/* Right Side: Form */}
+              <div className="lg:col-span-3 p-8 md:p-12 relative">
+                {/* Success overlay */}
+                {submitted && (
                   <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 15,
-                    }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="absolute inset-0 z-30 flex flex-col items-center justify-center rounded-2xl bg-surface-page/95 backdrop-blur-sm"
                   >
-                    <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15,
+                      }}
+                    >
+                      <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                    </motion.div>
+                    <p className="text-content-primary font-display font-bold text-2xl">
+                      Message Sent!
+                    </p>
+                    <p className="text-content-secondary mt-2">
+                      We&apos;ll get back to you within 24 hours.
+                    </p>
                   </motion.div>
-                  <p className="text-content-primary font-display font-bold text-xl">
-                    Message Sent!
-                  </p>
-                  <p className="text-content-secondary text-sm mt-2">
-                    We&apos;ll get back to you within 24 hours.
-                  </p>
-                </motion.div>
-              )}
+                )}
 
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-xs text-content-muted mb-2 uppercase tracking-wider font-semibold"
+                      >
+                        Your Name
+                      </label>
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className="w-full h-12 px-4 rounded-xl bg-surface-raised border border-border text-content-primary text-sm placeholder:text-content-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all shadow-sm"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-xs text-content-muted mb-2 uppercase tracking-wider font-semibold"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        className="w-full h-12 px-4 rounded-xl bg-surface-raised border border-border text-content-primary text-sm placeholder:text-content-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all shadow-sm"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="contact-name"
-                      className="block text-xs text-content-muted mb-2 uppercase tracking-wider"
+                      htmlFor="contact-subject"
+                      className="block text-xs text-content-muted mb-2 uppercase tracking-wider font-semibold"
                     >
-                      Your Name
+                      What do you want to build?
                     </label>
                     <input
-                      id="contact-name"
-                      name="name"
+                      id="contact-subject"
+                      name="subject"
                       type="text"
                       required
-                      value={formData.name}
+                      value={formData.subject}
                       onChange={handleChange}
-                      placeholder="John Doe"
-                      className="w-full h-11 px-4 rounded-xl bg-surface-overlay border border-border text-content-primary text-sm placeholder:text-content-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                      placeholder="AI Agent for Customer Support"
+                      className="w-full h-12 px-4 rounded-xl bg-surface-raised border border-border text-content-primary text-sm placeholder:text-content-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all shadow-sm"
                     />
                   </div>
+
                   <div>
                     <label
-                      htmlFor="contact-email"
-                      className="block text-xs text-content-muted mb-2 uppercase tracking-wider"
+                      htmlFor="contact-message"
+                      className="block text-xs text-content-muted mb-2 uppercase tracking-wider font-semibold"
                     >
-                      Email Address
+                      Tell Us About Your Project
                     </label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
+                    <textarea
+                      id="contact-message"
+                      name="message"
                       required
-                      value={formData.email}
+                      rows={5}
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="john@company.com"
-                      className="w-full h-11 px-4 rounded-xl bg-surface-overlay border border-border text-content-primary text-sm placeholder:text-content-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+                      placeholder="Describe your business challenges and what you'd like to automate..."
+                      className="w-full px-4 py-3 rounded-xl bg-surface-raised border border-border text-content-primary text-sm placeholder:text-content-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none shadow-sm"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="contact-subject"
-                    className="block text-xs text-content-muted mb-2 uppercase tracking-wider"
-                  >
-                    What do you want to build?
-                  </label>
-                  <input
-                    id="contact-subject"
-                    name="subject"
-                    type="text"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="AI Agent for Customer Support"
-                    className="w-full h-11 px-4 rounded-xl bg-surface-overlay border border-border text-content-primary text-sm placeholder:text-content-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-xs text-content-muted mb-2 uppercase tracking-wider"
-                  >
-                    Tell Us About Your Project
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your business challenges and what you'd like to automate..."
-                    className="w-full px-4 py-3 rounded-xl bg-surface-overlay border border-border text-content-primary text-sm placeholder:text-content-muted focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none"
-                  />
-                </div>
-
-                <div className="flex items-center justify-between pt-2">
-                  <p className="text-xs text-content-muted hidden sm:block">
-                    We respond within 24 hours.
-                  </p>
-                  <MovingBorder
-                    as="button"
-                    containerClassName="h-11"
-                    className="text-content-primary font-semibold px-8 text-sm"
-                  >
-                    Send Message
-                    <Send className="w-4 h-4 ml-2" />
-                  </MovingBorder>
-                </div>
-              </form>
+                  <div className="flex items-center justify-between pt-4">
+                    <p className="text-xs text-content-muted hidden sm:block">
+                      Secure and confidential.
+                    </p>
+                    <MovingBorder
+                      as="button"
+                      containerClassName="h-12"
+                      className="text-content-primary font-semibold px-8 text-sm"
+                    >
+                      Send Message
+                      <Send className="w-4 h-4 ml-2" />
+                    </MovingBorder>
+                  </div>
+                </form>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

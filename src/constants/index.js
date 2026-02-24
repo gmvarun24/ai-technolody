@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Caesers Republica",
   tagline: "Empowering Businesses with AI Solutions",
   logo: "/logo.png",
-  email: "hello@aitechnolody.com",
+  email: "hello@caeser-republica.com",
   phone: "+91 97668 32581",
   address: "Bengaluru, KA",
   socials: {
@@ -22,13 +22,12 @@ export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Use Cases", href: "#use-cases" },
   { label: "Process", href: "#process" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const NAV_CTA = {
-  label: "Book a Discovery Call",
+  label: "Talk to us",
   href: "#contact",
 };
 
@@ -44,14 +43,14 @@ export const HERO = {
   ],
   subheadline:
     "We build custom AI agents and workflow automations that help businesses scale faster, reduce costs, and save time — seamlessly integrated with your current systems.",
-  primaryCta: { label: "Book a Discovery Call", href: "#contact" },
+  primaryCta: { label: "Talk to us", href: "#contact" },
   secondaryCta: { label: "Explore Services", href: "#services" },
   trustBadges: ["Custom AI Solutions", "Rapid Deployment", "Enterprise Ready"],
 };
 
 // ─── LOGO CLOUD ───────────────────────────────────────────────────────────────
 export const LOGO_CLOUD = {
-  label: "Trusted by forward-thinking companies",
+  label: "Trusted on forward-thinking companies",
   logos: [
     { name: "OpenAI" },
     { name: "Google Cloud" },
@@ -124,7 +123,7 @@ export const USE_CASES_HEADING = {
   badge: "Use Cases",
   title: "AI solutions for every industry",
   subtitle:
-    "Personalised & integrated seamlessly with your current systems across departments and industries.",
+    "Personalised & integrates seamlessly with your current systems across departments and industries.",
 };
 
 export const USE_CASES = [
@@ -315,6 +314,20 @@ export const FAQS = [
       "Every project is unique, so we provide custom quotes based on your specific needs and scope. Book a free discovery call to discuss your requirements and get a detailed proposal with transparent pricing.",
   },
 ];
+
+// ─── ABOUT ────────────────────────────────────────────────────────────────────
+export const ABOUT = {
+  heading: {
+    badge: "About Us",
+    title: "Pioneering the Future of Work with AI",
+    subtitle:
+      "At Caesers Republica, we believe that artificial intelligence should be a seamless, empowering extension of your business. We are a team of passionate AI engineers and workflow specialists dedicated to solving complex operational challenges.",
+  },
+  content: [
+    "Our mission is to democratize advanced AI for forward-thinking companies. We don't just sell software; we build bespoke, intelligent systems tailored entirely to how you operate.",
+    "From autonomous SDR agents that multiply your sales pipeline, to executive AI assistants that return hours to your week, our solutions are built on the cutting edge of language models and automation frameworks.",
+  ],
+};
 
 // ─── FOOTER ──────────────────────────────────────────────────────────────────
 export const FOOTER_LINKS = [
