@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.6 }}
         className="text-center mb-16 px-6 relative z-20"
       >
-        <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary mb-6">
+        <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary">
           {TESTIMONIALS_HEADING.badge}
         </span>
       </motion.div>
