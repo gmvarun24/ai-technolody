@@ -6,7 +6,7 @@ export const BRAND = {
   name: "Caesers Republica",
   tagline: "Empowering Businesses with AI Solutions",
   logo: "/logo.png",
-  email: "hello@caeser-republica.com",
+  email: "hello@Caesers-Republica.com",
   phone: "+91 97668 32581",
   address: "Bengaluru, KA",
   socials: {
@@ -228,7 +228,6 @@ export const INTEGRATIONS = {
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 export const TESTIMONIALS_HEADING = {
   badge: "What Our Clients Say",
-  title: "Trusted by businesses worldwide to deliver AI excellence",
 };
 
 export const TESTIMONIALS = [

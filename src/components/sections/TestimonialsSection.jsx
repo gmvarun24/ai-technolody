@@ -63,9 +63,6 @@ export default function TestimonialsSection() {
         <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary mb-6">
           {TESTIMONIALS_HEADING.badge}
         </span>
-        <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-content-primary">
-          {TESTIMONIALS_HEADING.title}
-        </h2>
       </motion.div>
 
       {/* Blurred "Coming Soon" Overlay */}

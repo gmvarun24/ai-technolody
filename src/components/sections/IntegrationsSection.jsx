@@ -30,7 +30,7 @@ export default function IntegrationsSection() {
         >
           <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary mb-6">
             <Plug className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-            Integrations (Coming Soon)
+            Integrations
           </span>
           <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-content-primary mb-4">
             {INTEGRATIONS.heading.title}
