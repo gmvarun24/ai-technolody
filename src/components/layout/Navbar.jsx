@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group">
+            <a href="/" className="flex items-center gap-2 group">
               <img
                 src={BRAND.logo}
                 alt={BRAND.name}
@@ -95,6 +95,7 @@ export default function Navbar() {
 
               <MovingBorder
                 as="a"
+                href={NAV_CTA.href}
                 containerClassName="h-10"
                 className="text-content-primary text-sm font-medium px-5"
               >

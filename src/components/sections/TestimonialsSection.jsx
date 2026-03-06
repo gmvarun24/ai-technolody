@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Lock } from "lucide-react";
 import { InfiniteMovingCards } from "../aceternity/InfiniteMovingCards";
 import { TESTIMONIALS_HEADING, TESTIMONIALS } from "../../constants";
 
@@ -58,44 +58,69 @@ export default function TestimonialsSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16 px-6"
+        className="text-center mb-16 px-6 relative z-20"
       >
-        <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs text-content-primary mb-6">
+        <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary-dim text-xs font-bold text-content-primary">
           {TESTIMONIALS_HEADING.badge}
         </span>
-        <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-content-primary">
-          {TESTIMONIALS_HEADING.title}
-        </h2>
       </motion.div>
 
-      {/* Row 1 — scrolls left */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="mb-4"
-      >
-        <InfiniteMovingCards
-          items={firstHalf}
-          direction="left"
-          speed="normal"
-          renderItem={(item) => <TestimonialCard item={item} />}
-        />
-      </motion.div>
+      {/* Blurred "Coming Soon" Overlay */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center pt-32">
+        {/* Backdrop blur layer */}
+        <div className="absolute inset-0 backdrop-blur-[4px] bg-surface-page/50" />
 
-      {/* Row 2 — scrolls right */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ delay: 0.4, duration: 0.6 }}
-      >
-        <InfiniteMovingCards
-          items={secondHalf}
-          direction="right"
-          speed="normal"
-          renderItem={(item) => <TestimonialCard item={item} />}
-        />
-      </motion.div>
+        {/* Coming Soon Pill */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
+          className="relative z-20 flex flex-col items-center"
+        >
+          <div className="flex items-center gap-3 px-8 py-4 rounded-full border border-primary/30 bg-surface-raised shadow-2xl backdrop-blur-md">
+            <Lock className="w-5 h-5 text-primary" />
+            <span className="font-display font-bold text-lg md:text-xl text-content-primary tracking-wide uppercase">
+              Coming Soon
+            </span>
+          </div>
+          <p className="mt-4 text-sm font-medium text-content-primary/80 bg-surface-page/80 px-4 py-1.5 rounded-full backdrop-blur-sm pointer-events-none">
+            We will be back soon with amazing stories.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Background Content (Blurred) */}
+      <div className="relative opacity-40 mix-blend-luminosity select-none pointer-events-none">
+        {/* Row 1 — scrolls left */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mb-4 blur-[2px]"
+        >
+          <InfiniteMovingCards
+            items={firstHalf}
+            direction="left"
+            speed="normal"
+            renderItem={(item) => <TestimonialCard item={item} />}
+          />
+        </motion.div>
+
+        {/* Row 2 — scrolls right */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="blur-[2px]"
+        >
+          <InfiniteMovingCards
+            items={secondHalf}
+            direction="right"
+            speed="normal"
+            renderItem={(item) => <TestimonialCard item={item} />}
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }

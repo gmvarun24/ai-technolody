@@ -2,14 +2,14 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import HeroSection from "./components/sections/HeroSection";
 import LogoCloud from "./components/sections/LogoCloud";
-import StatsSection from "./components/sections/StatsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import UseCasesSection from "./components/sections/UseCasesSection";
 import ProcessSection from "./components/sections/ProcessSection";
 import IntegrationsSection from "./components/sections/IntegrationsSection";
-import TestimonialsSection from "./components/sections/TestimonialsSection";
 import FaqSection from "./components/sections/FaqSection";
 import ContactSection from "./components/sections/ContactSection";
+import AboutSection from "./components/sections/AboutSection";
+import TestimonialsSection from "./components/sections/TestimonialsSection";
 
 export default function App() {
   return (
@@ -18,7 +18,6 @@ export default function App() {
       <main>
         <HeroSection />
         <LogoCloud />
-        <StatsSection />
         <ServicesSection />
         <UseCasesSection />
         <ProcessSection />
@@ -27,6 +26,7 @@ export default function App() {
         <FaqSection />
         <ContactSection />
       </main>
+      <AboutSection />
       <Footer />
     </div>
   );
